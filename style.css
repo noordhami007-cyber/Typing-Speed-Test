@@ -1,0 +1,272 @@
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f0f1a;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 760px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ===== STATS ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.stat-card {
+  background: #1a1a2e;
+  border: 1px solid #2a2a45;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-wrap {
+  height: 4px;
+  background: #1e1e35;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #4f8ef7, #a855f7);
+  border-radius: 4px;
+  transition: width 0.15s ease;
+}
+
+/* ===== LOADING ===== */
+.loading-msg {
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+/* ===== TEXT DISPLAY ===== */
+.text-display {
+  display: none;
+  background: #13131f;
+  border: 1px solid #2a2a45;
+  border-radius: 14px;
+  padding: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  word-break: break-word;
+  min-height: 110px;
+}
+
+/* ===== CHARACTERS ===== */
+.char {
+  color: #555;
+  position: relative;
+}
+
+.char.correct {
+  color: #4ade80; /* green */
+}
+
+.char.wrong {
+  color: #f87171; /* red */
+  background-color: rgba(248, 113, 113, 0.15);
+  border-radius: 3px;
+}
+
+.char.cursor {
+  border-left: 2px solid #a855f7;
+  margin-left: -1px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: #a855f7; }
+  50%       { border-color: transparent; }
+}
+
+/* ===== RESULT CARD ===== */
+.result-card {
+  display: none;
+  background: #13131f;
+  border: 1px solid #2a2a45;
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.result-card.show {
+  display: block;
+}
+
+.result-card h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 340px;
+  margin: 0 auto 1.5rem;
+}
+
+.result-stat {
+  background: #1a1a2e;
+  border: 1px solid #2a2a45;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.rl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.rv {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ru {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 400;
+}
+
+/* ===== INPUT AREA ===== */
+#input-area {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  background: #13131f;
+  border: 1px solid #2a2a45;
+  border-radius: 12px;
+  color: #e0e0e0;
+  resize: none;
+  height: 56px;
+  overflow: hidden;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+#input-area:focus {
+  border-color: #4f8ef7;
+  box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.12);
+}
+
+#input-area:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  padding: 0.55rem 1.3rem;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #2a2a45;
+  background: #1a1a2e;
+  color: #ccc;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #252545;
+  color: #fff;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.status-msg {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 520px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .text-display {
+    font-size: 0.95rem;
+  }
+}

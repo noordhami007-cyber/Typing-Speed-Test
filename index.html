@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">⌨️ Typing Speed Test</h1>
+    <p class="subtitle">How fast can you type? Find out below.</p>
+
+    
+    <div class="stats">
+      <div class="stat-card">
+        <span class="stat-label">WPM</span>
+        <span class="stat-value" id="wpm">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Accuracy</span>
+        <span class="stat-value" id="acc">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Time</span>
+        <span class="stat-value" id="timer">0s</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Errors</span>
+        <span class="stat-value" id="errors">0</span>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Loading Message -->
+    <p class="loading-msg" id="loading-msg">Loading paragraph…</p>
+
+    <!-- Paragraph Display -->
+    <div class="text-display" id="text-display"></div>
+
+    <!-- Result Overlay -->
+    <div class="result-card" id="result-card">
+      <h2>🎉 Test Complete!</h2>
+      <div class="result-grid">
+        <div class="result-stat">
+          <div class="rl">WPM</div>
+          <div class="rv" id="r-wpm">0</div>
+        </div>
+        <div class="result-stat">
+          <div class="rl">Accuracy</div>
+          <div class="rv" id="r-acc">0<span class="ru">%</span></div>
+        </div>
+        <div class="result-stat">
+          <div class="rl">Time</div>
+          <div class="rv" id="r-time">0<span class="ru">s</span></div>
+        </div>
+        <div class="result-stat">
+          <div class="rl">Errors</div>
+          <div class="rv" id="r-errors">0</div>
+        </div>
+      </div>
+      <button class="btn" id="try-again-btn">🔄 Try Again</button>
+    </div>
+
+ 
+    <textarea
+      id="input-area"
+      placeholder="Click here and start typing…"
+      spellcheck="false"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      disabled
+    ></textarea>
+
+    
+    <div class="controls">
+      <button class="btn" id="reset-btn">🔄 New Paragraph</button>
+      <span class="status-msg" id="status-msg">Loading a paragraph for you…</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
